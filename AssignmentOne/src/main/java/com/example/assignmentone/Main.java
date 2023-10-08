@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class Main extends Application {
     @Override
@@ -17,7 +18,9 @@ public class Main extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         launch();
+//        Motorcycle newMotorcycle123 = new Motorcycle(1,"Yamaha",150,150,150,2400);
+//        System.out.println(DBUtility.insertMotorcyclesIntoDB(newMotorcycle123));
     }
 }

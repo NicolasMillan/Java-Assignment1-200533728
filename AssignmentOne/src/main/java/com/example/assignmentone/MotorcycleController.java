@@ -8,6 +8,7 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -41,7 +42,7 @@ public class MotorcycleController implements Initializable {
     }
 
     @FXML
-    void viewTable_onClick(ActionEvent event) {
-
+    void viewTable_onClick(ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event, "Motorcycle-table-view.fxml", "Motorcycle Stats!");
     }
 }

@@ -11,7 +11,7 @@ public class DBUtility {
         private static String connectURL = "jdbc:mysql://172.31.22.43/" + user;
 
         // static method to insert data to db
-        public static int inserMotorcyclesIntoDB(Motorcycle motorcycle) throws SQLException {
+        public static int insertMotorcyclesIntoDB(Motorcycle motorcycle) throws SQLException {
             int modelId = -1;
             ResultSet resultSet = null;
 
@@ -27,10 +27,10 @@ public class DBUtility {
             {
                 // run prepared statement and attach data instead of ?
                 preparedStatement.setString(1,motorcycle.getBrand());
-                preparedStatement.setInt(1,motorcycle.getCc());
-                preparedStatement.setInt(1,motorcycle.getHp());
-                preparedStatement.setInt(1,motorcycle.getTopSpeed());
-                preparedStatement.setDouble(1,motorcycle.getPrice());
+                preparedStatement.setInt(2,motorcycle.getCc());
+                preparedStatement.setInt(3,motorcycle.getHp());
+                preparedStatement.setInt(4,motorcycle.getTopSpeed());
+                preparedStatement.setDouble(5,motorcycle.getPrice());
                 // execute the query
                 preparedStatement.executeUpdate();
 

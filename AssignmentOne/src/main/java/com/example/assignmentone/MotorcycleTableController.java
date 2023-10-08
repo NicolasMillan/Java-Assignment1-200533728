@@ -1,6 +1,7 @@
 package com.example.assignmentone;
 
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -8,6 +9,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -20,9 +22,6 @@ public class MotorcycleTableController implements Initializable {
 
     @FXML
     private Button buttonAddStats;
-
-    @FXML
-    private Button buttonViewGraph;
 
     @FXML
     private TableColumn<Motorcycle, Integer> ccColumn;
@@ -47,13 +46,17 @@ public class MotorcycleTableController implements Initializable {
 //        System.out.println(DBUtility.getMotorcyclesFromDB());
         ArrayList<Motorcycle> motorcycles = DBUtility.getMotorcyclesFromDB();
 
-        modelIdColumn.setCellFactory(new PropertyValueFactory<>("modelId"));
-        brandColumn.setCellFactory(new PropertyValueFactory<>("brand"));
-        ccColumn.setCellFactory(new PropertyValueFactory<>("cc"));
-        hpColumn.setCellFactory(new PropertyValueFactory<>("hp"));
-        topSpeedColumn.setCellFactory(new PropertyValueFactory<>("topSpeed"));
-        priceColumn.setCellFactory(new PropertyValueFactory<>("price"));
+        modelIdColumn.setCellValueFactory(new PropertyValueFactory<>("modelId"));
+        brandColumn.setCellValueFactory(new PropertyValueFactory<>("brand"));
+        ccColumn.setCellValueFactory(new PropertyValueFactory<>("cc"));
+        hpColumn.setCellValueFactory(new PropertyValueFactory<>("hp"));
+        topSpeedColumn.setCellValueFactory(new PropertyValueFactory<>("topSpeed"));
+        priceColumn.setCellValueFactory(new PropertyValueFactory<>("Price"));
 
         tableView.getItems().addAll(motorcycles);
+    }
+    @FXML
+    void buttonViewGraph(ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event, "Motorcycle-view.fxml", "Motorcycle Graphic");
     }
 }

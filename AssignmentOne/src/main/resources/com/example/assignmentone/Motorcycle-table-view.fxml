@@ -39,7 +39,7 @@
             <HBox alignment="CENTER" prefHeight="30.0" prefWidth="600.0" spacing="60.0" BorderPane.alignment="CENTER">
                <children>
                   <Button fx:id="buttonAddStats" mnemonicParsing="false" text="Add Stats" />
-                  <Button fx:id="buttonViewGraph" mnemonicParsing="false" text="View Graph" />
+                  <Button mnemonicParsing="false" onAction="#buttonViewGraph" text="View Graph" />
                </children>
             </HBox>
          </bottom>
